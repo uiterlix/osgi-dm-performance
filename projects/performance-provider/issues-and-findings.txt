@@ -1,0 +1,25 @@
+Knoplerfish seems to outperform equinox and felix in the current simple scenario.
+
+Rough first findings
+--------------------
+
+Equinox: 100000 services, 1 consumer for a single service using a filter on a custom id property
+--------
+dm (no index)		: 2100
+dm (with index)		: 2800
+scr					: 3470
+plain osgi lookup	: 1990
+
+Equinox: 200000 services, 1 consumer for a single service using a filter on a custom id property
+--------
+dm (no index)		: 5830
+dm (with index)		: 5050
+scr					: 12800
+plain osgi lookup	: 5680
+
+
+
+Todo:
+----
+- figure out how to easily create a lot of consumers using scr (servicefactory)
+- add ipojo consumer as well

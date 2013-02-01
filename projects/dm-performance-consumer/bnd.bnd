@@ -13,4 +13,4 @@ Private-Package: org.example.consumer.dm
 	performance-provider;version=latest
 Bundle-Activator: org.example.consumer.dm.Activator
 Bundle-Version: 1.0.0
--runvm: -Dosgi.console -Xmx2048M -D"org.apache.felix.dependencymanager.filterindex=family,type,objectClass;objectClass"
+-runvm: -Dosgi.console -Xmx2048M -D"org.apache.felix.dependencymanager.filterindex=id,type,objectClass;objectClass"
