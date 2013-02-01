@@ -5,12 +5,12 @@ Import-Package: org.example.consumer.ds,\
 	*
 Private-Package: org.example.consumer.dm
 -runfw: org.eclipse.osgi;version='[3.7.1.R37x_v20110808-1106,3.7.1.R37x_v20110808-1106]'
--runbundles: 	org.apache.felix.shell,\
+-runbundles: org.apache.felix.shell,\
 	org.apache.felix.shell.tui,\
 	org.apache.felix.dependencymanager;resolution=file:/Users/uiterlix/development/workspaces/workspace-depmgr/cnf/repo/org.apache.felix.dependencymanager/org.apache.felix.dependencymanager-3.1.0.jar;version='[3.1.0,3.1.1)',\
 	ds-performance-consumer;resolution=file:/Users/uiterlix/development/workspaces/workspace-depmgr/ds-performance-consumer/generated/ds-performance-consumer.jar;version=latest,\
 	osgi.cmpn;resolution=http://bundles.bndtools.org.s3.amazonaws.com/osgi.cmpn/osgi.cmpn-4.2.1.jar;version='[4.2.1,4.2.2)',\
-	ds-performance-provider;resolution=file:/Users/uiterlix/development/workspaces/workspace-depmgr/ds-performance-provider/generated/ds-performance-provider.jar;version=latest
+	performance-provider;version=latest
 Bundle-Activator: org.example.consumer.dm.Activator
 Bundle-Version: 1.0.0
 -runvm: -Dosgi.console -Xmx2048M -D"org.apache.felix.dependencymanager.filterindex=family,type,objectClass;objectClass"
