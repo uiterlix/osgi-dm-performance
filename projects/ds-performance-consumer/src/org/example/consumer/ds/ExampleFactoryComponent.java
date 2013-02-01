@@ -1,7 +1,6 @@
 package org.example.consumer.ds;
 
-import org.example.provider.MyFancyService;
-import org.example.provider.ServiceFromFactory;
+import org.example.provider.Producer;
 import org.example.provider.Timer;
 import org.osgi.service.component.ComponentContext;
 
@@ -9,8 +8,12 @@ import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
 import aQute.bnd.annotation.component.Reference;
 
+/**
+ * Not yet been used in testing
+ *
+ */
 @Component(servicefactory = true)
-public class ExampleFactoryComponent implements ServiceFromFactory {
+public class ExampleFactoryComponent implements Producer {
 
 	int serviceCount = 0;
 
@@ -19,8 +22,8 @@ public class ExampleFactoryComponent implements ServiceFromFactory {
 		System.out.println("Activate, using bundle: " + ctx.getUsingBundle());
 	}
 
-	@Reference(service = MyFancyService.class, multiple = true, target = "(&(id=99999)(type=service))")
-	public void addFancyService(MyFancyService service) {
+	@Reference(service = Producer.class, multiple = true, target = "(&(id=99999)(type=servicefromfactory))")
+	public void addFancyService(Producer service) {
 		if (serviceCount == 0) {
 			System.out.println("Injection started...");
 			Timer.stop();

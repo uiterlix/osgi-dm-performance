@@ -1,10 +1,13 @@
 package org.example.consumer.ds;
 
-import org.example.provider.MyFancyService;
+import org.example.provider.Producer;
 import org.example.provider.Timer;
 
 import aQute.bnd.annotation.component.*;
 
+/**
+ * Component used by the different DI implementations. 
+ */
 @Component
 public class ExampleComponent {
 	
@@ -23,9 +26,8 @@ public class ExampleComponent {
 		System.out.println("ExampleComponent destroy");
 	}
 
-	// TODO: Find out... the filter does not seem to make that much of a difference.
-	@Reference(service=MyFancyService.class, multiple=true, target="(&(id=99999)(type=service))")
-	public void addFancyService(MyFancyService service) {
+	@Reference(service=Producer.class, multiple=true, target="(&(id=99999)(type=service))")
+	public void addFancyService(Producer service) {
 		if (serviceCount == 0) {
 			System.out.println("Injection started...");
 			Timer.stop();
@@ -33,7 +35,7 @@ public class ExampleComponent {
 		serviceCount ++;
 	}
 	
-	public void removeFancyService(MyFancyService service) {
+	public void removeFancyService(Producer service) {
 		
 	}
 }

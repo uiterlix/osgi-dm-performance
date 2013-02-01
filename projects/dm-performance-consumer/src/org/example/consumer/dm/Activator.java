@@ -4,7 +4,7 @@ import org.apache.felix.dm.Component;
 import org.apache.felix.dm.DependencyActivatorBase;
 import org.apache.felix.dm.DependencyManager;
 import org.example.consumer.ds.ExampleComponent;
-import org.example.provider.MyFancyService;
+import org.example.provider.Producer;
 import org.osgi.framework.BundleContext;
 
 public class Activator extends DependencyActivatorBase {
@@ -22,7 +22,7 @@ public class Activator extends DependencyActivatorBase {
 		System.out.println("index: " + System.getProperty("org.apache.felix.dependencymanager.filterindex"));
 		System.out.println("adding component...");
 		Component exampleComponent = manager.createComponent().setImplementation(ExampleComponent.class)
-			.add(manager.createServiceDependency().setService(MyFancyService.class, "(&(id=99999)(type=service))").setRequired(true)
+			.add(manager.createServiceDependency().setService(Producer.class, "(&(id=99999)(type=service))").setRequired(true)
 					.setCallbacks("addFancyService", "removeFancyService"))
 			.setCallbacks("init", "start", "stop", "destroy");
 		manager.add(exampleComponent);

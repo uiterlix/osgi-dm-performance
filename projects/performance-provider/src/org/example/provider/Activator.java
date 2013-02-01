@@ -18,8 +18,8 @@ public class Activator implements BundleActivator {
 		Timer.start();
 		System.out.println("Start provider activator...");
 		if (System.getProperty("org.apache.felix.dependencymanager.filterindex") != null) {
-			System.out.println("Initialize dependency manager (to create filter indices early)");
-			DependencyManager manager = new DependencyManager(context);
+			System.out.println("Initialize dependency manager (to enable filter indices early)");
+			new DependencyManager(context);
 			System.out.println("Initialized dependency manager");
 		}
 		Properties properties = new Properties();
@@ -29,14 +29,13 @@ public class Activator implements BundleActivator {
 	}
 	
 	private void registerServices(BundleContext context, int count, Properties properties) {
-		// register 50000 irrelevant services
 		long start = System.currentTimeMillis();
 		long splitStart = System.currentTimeMillis();
 		for (int i = 0; i < count; i++) {
 			properties.setProperty("id", i + "");
-			MyFancyService service = new MyFancyService() {
+			Producer service = new Producer() {
 			};
-			registrations.add(context.registerService(MyFancyService.class.getName(), service, properties));
+			registrations.add(context.registerService(Producer.class.getName(), service, properties));
 			if (i % Globals.TIMER_SPLIT == 0) {
 				long splitDuration = System.currentTimeMillis() - splitStart;
 				splitStart = System.currentTimeMillis();

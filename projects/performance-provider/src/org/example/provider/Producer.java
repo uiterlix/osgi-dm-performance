@@ -1,5 +1,5 @@
 package org.example.provider;
 
-public interface MyFancyService {
+public interface Producer {
 
 }

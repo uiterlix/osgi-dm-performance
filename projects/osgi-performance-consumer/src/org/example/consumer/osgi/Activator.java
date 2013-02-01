@@ -1,6 +1,6 @@
 package org.example.consumer.osgi;
 
-import org.example.provider.MyFancyService;
+import org.example.provider.Producer;
 import org.example.provider.Timer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -12,8 +12,8 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Activator start");
 		
-		ServiceReference[] serviceReferences = context.getServiceReferences(MyFancyService.class.getName(), "(&(id=99999)(type=service))");
-		Object service = context.getService(serviceReferences[0]);
+		ServiceReference[] serviceReferences = context.getServiceReferences(Producer.class.getName(), "(&(id=99999)(type=service))");
+		context.getService(serviceReferences[0]);
 		Timer.stop();
 	}
 
