@@ -1,0 +1,10 @@
+-buildpath: ds-performance-provider;version=latest,\
+	osgi.core
+Bundle-Activator: org.example.consumer.osgi.Activator
+Private-Package: org.example.consumer.osgi
+-runfw: org.eclipse.osgi;version='[3.7.1.R37x_v20110808-1106,3.7.1.R37x_v20110808-1106]'
+-runrequire: bundle:(symbolicname=ds-performance-provider)
+-runbundles: org.apache.felix.dependencymanager;resolution=file:/Users/uiterlix/development/workspaces/workspace-depmgr/cnf/repo/org.apache.felix.dependencymanager/org.apache.felix.dependencymanager-3.1.0.jar;version='[3.1.0,3.1.1)',\
+	osgi.cmpn;resolution=http://bundles.bndtools.org.s3.amazonaws.com/osgi.cmpn/osgi.cmpn-4.2.1.jar;version='[4.2.1,4.2.2)',\
+	ds-performance-provider;resolution=file:/Users/uiterlix/development/workspaces/workspace-depmgr/ds-performance-provider/generated/ds-performance-provider.jar;version=latest
+-runvm: -Xmx2048M
