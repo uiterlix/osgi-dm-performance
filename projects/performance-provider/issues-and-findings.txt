@@ -1,4 +1,12 @@
-Knoplerfish seems to outperform equinox and felix in the current simple scenario.
+Performance testing Set-up
+--------------------------
+performance testing of osgi container and di framework service (wiring) performance varying:
+- osgi framework (knoplerfish, felix, equinox)
+- di framework (plain osgi lookup, felix dependencymanager, declarative services (felix scr), ipojo)
+- complexity
+	- # producer services
+	- # consumer services
+	- # dependencies 
 
 Rough first findings
 --------------------
@@ -18,8 +26,11 @@ scr					: 12800
 plain osgi lookup	: 5680
 
 
-
 Todo:
 ----
 - figure out how to easily create a lot of consumers using scr (servicefactory)
 - add ipojo consumer as well
+
+Notes:
+------
+Knoplerfish seems to outperform equinox and felix in the current simple scenario.
